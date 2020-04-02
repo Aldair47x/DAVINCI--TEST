@@ -2,260 +2,270 @@
 </div>
 <div class="main-content">
   <div class="row">
-    <div class="col-md-12">
+
+    <div class="mr-auto mx-auto col-md-10 col-lg-10">
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title"> Simple Table</h4>
+          <h5 class="title">Crear cita medica</h5>
         </div>
         <div class="card-body">
-          <div class="table-responsive">
-            <table class="table">
-              <thead class=" text-primary">
-                <th>
-                  Name
-                </th>
-                <th>
-                  Country
-                </th>
-                <th>
-                  City
-                </th>
-                <th class="text-right">
-                  Salary
-                </th>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    Dakota Rice
-                  </td>
-                  <td>
-                    Niger
-                  </td>
-                  <td>
-                    Oud-Turnhout
-                  </td>
-                  <td class="text-right">
-                    $36,738
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    Minerva Hooper
-                  </td>
-                  <td>
-                    Curaçao
-                  </td>
-                  <td>
-                    Sinaai-Waas
-                  </td>
-                  <td class="text-right">
-                    $23,789
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    Sage Rodriguez
-                  </td>
-                  <td>
-                    Netherlands
-                  </td>
-                  <td>
-                    Baileux
-                  </td>
-                  <td class="text-right">
-                    $56,142
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    Philip Chaney
-                  </td>
-                  <td>
-                    Korea, South
-                  </td>
-                  <td>
-                    Overland Park
-                  </td>
-                  <td class="text-right">
-                    $38,735
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    Doris Greene
-                  </td>
-                  <td>
-                    Malawi
-                  </td>
-                  <td>
-                    Feldkirchen in Kärnten
-                  </td>
-                  <td class="text-right">
-                    $63,542
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    Mason Porter
-                  </td>
-                  <td>
-                    Chile
-                  </td>
-                  <td>
-                    Gloucester
-                  </td>
-                  <td class="text-right">
-                    $78,615
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    Jon Porter
-                  </td>
-                  <td>
-                    Portugal
-                  </td>
-                  <td>
-                    Gloucester
-                  </td>
-                  <td class="text-right">
-                    $98,615
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          <form [formGroup]="form" (ngSubmit)="onSaveForm()"> 
+
+            <div class="row">
+
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+
+                  <label>Nombre(s)</label>
+                  <input required type="text" class="form-control"  placeholder="Ingrese su nombre" formControlName="nombre" >
+                  <span class="text-danger" *ngIf="(nombre.dirty || nombre.touched ) && nombre.invalid 
+                   && nombre.errors.required">
+                    Ingrese un nombre válido*
+                  </span>
+                  <span class="text-danger" *ngIf="(nombre.dirty || nombre.touched ) && nombre.invalid 
+                    && nombre.errors.pattern">
+                    Ingrese un nombre válido*
+                  </span>
+                  
+                </div>
+              </div>
+
+              <div class="col-md-4 pl-1">
+                <div class="form-group">
+                  <label>Apellidos</label>
+                  <input required type="text" class="form-control" placeholder="Ingrese sus apellidos" formControlName="apellidos">
+                  <span class="text-danger" *ngIf="(apellidos.dirty || apellidos.touched) && apellidos.invalid
+                  && apellidos.errors.required">
+                    Ingrese un apellido válido*
+                  </span>
+                  <span class="text-danger" *ngIf="(apellidos.dirty || apellidos.touched) && apellidos.invalid
+                  &&  apellidos.errors.pattern">
+                    Ingrese un apellido válido*
+                  </span>
+                </div>
+              </div>
+
+              <div class="col-md-4 px-1">
+                <div class="form-group">
+                  <label>Correo electrónico</label>
+                  <input required type="email" class="form-control" placeholder="Ingrese su email" formControlName="email">
+                  <span class="text-danger" *ngIf="(email.dirty || email.touched) && email.invalid
+                    && email.errors.required">
+                    Ingrese un email válido*
+                  </span>
+                  <span class="text-danger" *ngIf="(email.dirty || email.touched) && email.invalid
+                   && email.errors.email ">
+                    Ingrese un email válido*
+                  </span>
+                </div>
+              </div>
+              
+            </div>
+
+            <div class="row">
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label>Tipo de documento</label>
+                  <select required class="form-control "  formControlName="tipodocumento" [(ngModel)]="seleccionado">
+                    <option value="" selected>Selecciona un documento</option>
+                    <option *ngFor="let x of tiposDeDocumento" [value]="x">{{ x }}</option>
+                  </select>
+                  
+                </div>
+              </div>
+
+              
+
+              <div class="col-md-4 px-l" *ngIf="seleccionado">
+                <div class="form-group">
+                  <label>Documento</label>
+                  <input required type="number" class="form-control" placeholder="Ingrese su documento" formControlName="documento">
+                  <span class="text-danger" *ngIf="(documento.dirty || documento.touched) && documento.invalid
+                   && documento.errors.required ">
+                    Ingrese un documento válido*
+                  </span>
+                  
+                </div>
+              </div>
+
+
+
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label>Fecha de nacimiento</label>
+                  <input required type="date" class="form-control" placeholder="Ingrese la fecha de nacimiento" formControlName="fechanacimiento">
+                  <span class="text-danger" *ngIf="(fechanacimiento.dirty || fechanacimiento.touched) && fechanacimiento.invalid
+                   && fechanacimiento.errors.required">
+                    Ingrese una fecha válida*
+                  </span>
+                </div>
+              </div>
+
+            </div>
+
+
+            <div class="row">
+              <div class="col-md-7 pr-1">
+                <div class="form-group">
+                  <label>Dirección</label>
+                  <input required type="text" class="form-control" placeholder="Nombre de la aseguradora" formControlName="direccion">
+                  <span class="text-danger" *ngIf="(direccion.dirty || direccion.touched) && direccion.invalid
+                   && direccion.errors.required  ">
+                    Ingrese una dirección válida*
+                  </span>
+                </div>
+              </div>
+
+              <div class="col-md-5 pl-1">
+                <div class="form-group">
+                  <label>Número de celular</label>
+                  <input required type="number" class="form-control" placeholder="Ingrese su número de celular" formControlName="celular">
+                  <span class="text-danger" *ngIf="(celular.dirty || celular.touched) && celular.invalid
+                   && celular.errors.required ">
+                    Ingrese un número de celular válido*
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="mr-auto mx-auto col-md-10 px-1">
+                <div class="form-group">
+                  <label>Aseguradora</label>
+                  <input required type="text" class="form-control" placeholder="Ingrese el nombre de la aseguradora" formControlName="aseguradora">
+                  <span class="text-danger" *ngIf="(aseguradora.dirty || aseguradora.touched) && aseguradora.invalid
+                    && aseguradora.errors.required">
+                    Ingrese un nombre de aseguradora válido*
+                  </span>
+                  <span class="text-danger" *ngIf="(aseguradora.dirty || aseguradora.touched) && aseguradora.invalid
+                    && aseguradora.errors.pattern">
+                    Ingrese un nombre de aseguradora válido*
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+
+              <div class="mr-auto mx-auto col-md-5 pl-1">
+                <div class="form-group">
+                  <label>Medico tratante</label>
+                  <select required class="form-control "  formControlName="medico" >
+                    <option value="" selected>Selecciona un médico</option>
+                    <option *ngFor="let x of nombresMedicos" [value]="x">{{ x }}</option>
+                  </select>
+                  
+                </div>
+              </div>
+
+              <div class="mr-auto mx-auto col-md-5 pr-1">
+                <div class="form-group">
+                  <label>Tipo de consulta</label>
+                  <select required class="form-control "  formControlName="tipoconsulta">
+                    <option value="" selected>Selecciona el tipo de consulta</option>
+                    <option *ngFor="let x of tiposDeConsulta"  [value]="x">{{ x }}</option>
+                  </select>
+                </div>
+              </div>
+              
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-md-5 px-1">
+                
+                <div class="form-group">
+                  
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      Agendar cita MEDICO EN CASA
+                      <input class="form-check-input required" type="checkbox" formControlName="check" checked>
+                      <span class="form-check-sign"></span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4 pl-1">
+                <div class="form-group">
+                  <label>Fecha de cita</label>
+                  <input required type="date" class="form-control" formControlName="fechacita">
+                  <span class="text-danger" *ngIf="(fechacita.dirty || fechacita.touched) && fechacita.invalid && fechacita.errors.required">
+                    Ingrese una fecha válida*
+                  </span>
+                </div>
+              </div>
+
+              <div class="col-md-3 pr-1">
+                <div class="button-container">
+                  <button  (click)="showNotification('bottom','right')" type="submit" style="float: right;" class="btn btn-info btn-round btn-lg" [disabled]="!form.valid">
+                    Enviar
+                  </button>
+                </div>
+              </div>
+
+            </div>
+          </form>
         </div>
       </div>
     </div>
-    <div class="col-md-12">
-      <div class="card card-plain">
+
+    <div class="col-md-12 col-lg-12">
+      <div class="card">
         <div class="card-header">
-          <h4 class="card-title"> Table on Plain Background</h4>
-          <p class="category"> Here is a subtitle for this table</p>
+          <h4 class="card-title"> Listado de citas</h4>
         </div>
         <div class="card-body">
           <div class="table-responsive">
             <table class="table">
               <thead class=" text-primary">
                 <th>
-                  Name
+                  Tipo de consulta
                 </th>
                 <th>
-                  Country
+                  Nombre especialista
                 </th>
                 <th>
-                  City
+                  Fecha de cita
                 </th>
-                <th class="text-right">
-                  Salary
+                <th>
+                  Nombre del paciente
+                </th>
+                <th>
+                  Documento de identificación
+                </th>
+                <th>
+                  Medico en casa
                 </th>
               </thead>
               <tbody>
-                <tr>
+
+                <tr *ngFor="let cita of citas">
                   <td>
-                    Dakota Rice
+                    {{ cita.tipoconsulta }}
                   </td>
                   <td>
-                    Niger
+                    {{ cita.medico }}
                   </td>
                   <td>
-                    Oud-Turnhout
+                    {{ cita.fechacita }}
                   </td>
-                  <td class="text-right">
-                    $36,738
+                  <td >
+                    {{ cita.nombre }}
+                  </td>
+                  <td>
+                    {{ cita.documento }}
+                  </td>
+                  <td >
+                    {{ cita.auxcheck }}
                   </td>
                 </tr>
-                <tr>
-                  <td>
-                    Minerva Hooper
-                  </td>
-                  <td>
-                    Curaçao
-                  </td>
-                  <td>
-                    Sinaai-Waas
-                  </td>
-                  <td class="text-right">
-                    $23,789
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    Sage Rodriguez
-                  </td>
-                  <td>
-                    Netherlands
-                  </td>
-                  <td>
-                    Baileux
-                  </td>
-                  <td class="text-right">
-                    $56,142
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    Philip Chaney
-                  </td>
-                  <td>
-                    Korea, South
-                  </td>
-                  <td>
-                    Overland Park
-                  </td>
-                  <td class="text-right">
-                    $38,735
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    Doris Greene
-                  </td>
-                  <td>
-                    Malawi
-                  </td>
-                  <td>
-                    Feldkirchen in Kärnten
-                  </td>
-                  <td class="text-right">
-                    $63,542
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    Mason Porter
-                  </td>
-                  <td>
-                    Chile
-                  </td>
-                  <td>
-                    Gloucester
-                  </td>
-                  <td class="text-right">
-                    $78,615
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    Jon Porter
-                  </td>
-                  <td>
-                    Portugal
-                  </td>
-                  <td>
-                    Gloucester
-                  </td>
-                  <td class="text-right">
-                    $98,615
-                  </td>
-                </tr>
+            
               </tbody>
             </table>
           </div>
         </div>
       </div>
     </div>
+    
   </div>
 </div>
