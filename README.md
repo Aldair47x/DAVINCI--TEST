@@ -51,8 +51,8 @@ Adoption. ✓
 
 ## Authors
 
-* **Aldair Bernal** - *Flil work* - [Aldair47x](https://github.com/Aldair47x)
-* **Creative Tim** - *Base template* - [Creative Tim React Free Templates](https://www.creative-tim.com/templates/react-free)
+* **Aldair Bernal** - *Full work* - [Aldair47x](https://github.com/Aldair47x)
+* **Creative Tim** - *Base template* - [Creative Tim React Free Templates](https://www.creative-tim.com/product/now-ui-dashboard-angular#)
 
 Follow me! – [aldair47x@Twitter](https://twitter.com/aldair47x) – aldair47x@gmail.com
 
