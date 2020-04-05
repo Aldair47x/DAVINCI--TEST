@@ -268,7 +268,7 @@
     }
 
     &[data-color="blue"]{
-      @include sidebar-color($blue-sidebar);
+      @include sidebar-color(#737373);
     }
     &[data-color="green"]{
       @include sidebar-color($success-color);

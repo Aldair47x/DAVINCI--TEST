@@ -67,9 +67,11 @@
 
   .nav li.active > a{
     color: $color;
+    font-weight: bold;
 
     i{
       color: $color;
+      font-weight: bold;
     }
   }
 }

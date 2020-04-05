@@ -1,8 +1,9 @@
 
 <div class="logo">
     <a href="https://www.creative-tim.com" class="simple-text logo-mini">
+        Site
       <div class="logo-img">
-          <img src="https://www.davincitech.co/templates/rt_galatea/custom/images/web/Connect-Hor.svg"/>
+          <img alt="davinci-logo" src="https://www.davincitech.co/templates/rt_galatea/custom/images/web/Connect-Hor.svg"/>
       </div>
     </a>
 </div>
@@ -11,7 +12,7 @@
         <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">
             <a [routerLink]="[menuItem.path]">
                 <i class="now-ui-icons {{menuItem.icon}}"></i>
-                <p>{{menuItem.title}}</p>
+                {{menuItem.title}}
             </a>
         </li>
     </ul>

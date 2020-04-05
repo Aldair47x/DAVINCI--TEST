@@ -16,8 +16,8 @@
               <div class="col-md-4 pr-1">
                 <div class="form-group">
 
-                  <label>Nombre(s)</label>
-                  <input required type="text" class="form-control"  placeholder="Ingrese su nombre" formControlName="nombre" >
+                  <label for="nombre">Nombre(s)</label>
+                  <input id="nombre" required type="text" class="form-control"  placeholder="Ingrese su nombre" formControlName="nombre" >
                   <span class="text-danger" *ngIf="(nombre.dirty || nombre.touched ) && nombre.invalid 
                    && nombre.errors.required">
                     Ingrese un nombre válido*
@@ -32,8 +32,8 @@
 
               <div class="col-md-4 pl-1">
                 <div class="form-group">
-                  <label>Apellidos</label>
-                  <input required type="text" class="form-control" placeholder="Ingrese sus apellidos" formControlName="apellidos">
+                  <label for="apellido">Apellidos</label>
+                  <input id="apellido" required type="text" class="form-control" placeholder="Ingrese sus apellidos" formControlName="apellidos">
                   <span class="text-danger" *ngIf="(apellidos.dirty || apellidos.touched) && apellidos.invalid
                   && apellidos.errors.required">
                     Ingrese un apellido válido*
@@ -47,8 +47,8 @@
 
               <div class="col-md-4 px-1">
                 <div class="form-group">
-                  <label>Correo electrónico</label>
-                  <input required type="email" class="form-control" placeholder="Ingrese su email" formControlName="email">
+                  <label for="email">Correo electrónico</label>
+                  <input id="email" required type="email" class="form-control" placeholder="Ingrese su email" formControlName="email">
                   <span class="text-danger" *ngIf="(email.dirty || email.touched) && email.invalid
                     && email.errors.required">
                     Ingrese un email válido*
@@ -65,8 +65,8 @@
             <div class="row">
               <div class="col-md-4 pr-1">
                 <div class="form-group">
-                  <label>Tipo de documento</label>
-                  <select required class="form-control "  formControlName="tipodocumento" [(ngModel)]="seleccionado">
+                  <label for="seldocumento">Tipo de documento</label>
+                  <select id="seldocumento" required class="form-control "  formControlName="tipodocumento" [(ngModel)]="seleccionado">
                     <option value="" selected>Selecciona un documento</option>
                     <option *ngFor="let x of tiposDeDocumento" [value]="x">{{ x }}</option>
                   </select>
@@ -78,8 +78,8 @@
 
               <div class="col-md-4 px-l" *ngIf="seleccionado">
                 <div class="form-group">
-                  <label>Documento</label>
-                  <input required type="number" class="form-control" placeholder="Ingrese su documento" formControlName="documento">
+                  <label for="documento">Documento</label>
+                  <input id="documento" required type="number" class="form-control" placeholder="Ingrese su documento" formControlName="documento">
                   <span class="text-danger" *ngIf="(documento.dirty || documento.touched) && documento.invalid
                    && documento.errors.required ">
                     Ingrese un documento válido*
@@ -92,8 +92,8 @@
 
               <div class="col-md-4 pr-1">
                 <div class="form-group">
-                  <label>Fecha de nacimiento</label>
-                  <input required type="date" class="form-control" placeholder="Ingrese la fecha de nacimiento" formControlName="fechanacimiento">
+                  <label for="fechanacimiento">Fecha de nacimiento</label>
+                  <input id="fechanacimiento" required type="date" class="form-control" placeholder="Ingrese la fecha de nacimiento" formControlName="fechanacimiento">
                   <span class="text-danger" *ngIf="(fechanacimiento.dirty || fechanacimiento.touched) && fechanacimiento.invalid
                    && fechanacimiento.errors.required">
                     Ingrese una fecha válida*
@@ -107,8 +107,8 @@
             <div class="row">
               <div class="col-md-7 pr-1">
                 <div class="form-group">
-                  <label>Dirección</label>
-                  <input required type="text" class="form-control" placeholder="Nombre de la aseguradora" formControlName="direccion">
+                  <label for="direccion">Dirección</label>
+                  <input id="direccion" required type="text" class="form-control" placeholder="Nombre de la aseguradora" formControlName="direccion">
                   <span class="text-danger" *ngIf="(direccion.dirty || direccion.touched) && direccion.invalid
                    && direccion.errors.required  ">
                     Ingrese una dirección válida*
@@ -118,8 +118,8 @@
 
               <div class="col-md-5 pl-1">
                 <div class="form-group">
-                  <label>Número de celular</label>
-                  <input required type="number" class="form-control" placeholder="Ingrese su número de celular" formControlName="celular">
+                  <label for="cel">Número de celular</label>
+                  <input id="cel" required type="number" class="form-control" placeholder="Ingrese su número de celular" formControlName="celular">
                   <span class="text-danger" *ngIf="(celular.dirty || celular.touched) && celular.invalid
                    && celular.errors.required ">
                     Ingrese un número de celular válido*
@@ -131,8 +131,8 @@
             <div class="row">
               <div class="mr-auto mx-auto col-md-10 px-1">
                 <div class="form-group">
-                  <label>Aseguradora</label>
-                  <input required type="text" class="form-control" placeholder="Ingrese el nombre de la aseguradora" formControlName="aseguradora">
+                  <label for="aseguradora">Aseguradora</label>
+                  <input id="aseguradora" required type="text" class="form-control" placeholder="Ingrese el nombre de la aseguradora" formControlName="aseguradora">
                   <span class="text-danger" *ngIf="(aseguradora.dirty || aseguradora.touched) && aseguradora.invalid
                     && aseguradora.errors.required">
                     Ingrese un nombre de aseguradora válido*
@@ -149,8 +149,8 @@
 
               <div class="mr-auto mx-auto col-md-5 pl-1">
                 <div class="form-group">
-                  <label>Medico tratante</label>
-                  <select required class="form-control "  formControlName="medico" >
+                  <label for="medico">Medico tratante</label>
+                  <select id="medico" required class="form-control "  formControlName="medico" >
                     <option value="" selected>Selecciona un médico</option>
                     <option *ngFor="let x of nombresMedicos" [value]="x">{{ x }}</option>
                   </select>
@@ -160,8 +160,8 @@
 
               <div class="mr-auto mx-auto col-md-5 pr-1">
                 <div class="form-group">
-                  <label>Tipo de consulta</label>
-                  <select required class="form-control "  formControlName="tipoconsulta">
+                  <label for="tipoconsulta">Tipo de consulta</label>
+                  <select id="tipoconsulta" required class="form-control "  formControlName="tipoconsulta">
                     <option value="" selected>Selecciona el tipo de consulta</option>
                     <option *ngFor="let x of tiposDeConsulta"  [value]="x">{{ x }}</option>
                   </select>
@@ -187,8 +187,8 @@
 
               <div class="col-md-4 pl-1">
                 <div class="form-group">
-                  <label>Fecha de cita</label>
-                  <input required type="date" class="form-control" formControlName="fechacita">
+                  <label for="fechacita">Fecha de cita</label>
+                  <input id="fechacita" required type="date" class="form-control" formControlName="fechacita">
                   <span class="text-danger" *ngIf="(fechacita.dirty || fechacita.touched) && fechacita.invalid && fechacita.errors.required">
                     Ingrese una fecha válida*
                   </span>

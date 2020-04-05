@@ -24,7 +24,6 @@ export class TableListComponent implements OnInit {
     this.nombresMedicos = ['Ellen Pompeo','Hugh Laurie', 'Freddie Highmore'];
     this.tiposDeDocumento = ['Cedula de ciudadania', 'Cedula extranjera', 'NIT'];
     this.citas = [];
-    
 
   }
 
