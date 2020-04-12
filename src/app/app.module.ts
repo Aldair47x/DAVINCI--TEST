@@ -7,6 +7,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
+import {QuicklinkStrategy, QuicklinkModule} from 'ngx-quicklink';
 
 import { AppComponent } from './app.component';
 
@@ -19,7 +20,10 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
     ReactiveFormsModule,
     HttpClientModule,
     ComponentsModule,
-    RouterModule,
+    QuicklinkModule,
+    RouterModule.forRoot([],{
+      preloadingStrategy: QuicklinkStrategy
+    }),
     AppRoutingModule,
     NgbModule,
     ToastrModule.forRoot()

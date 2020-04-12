@@ -14,6 +14,7 @@ export class TableListComponent implements OnInit {
   tiposDeDocumento: Array<string>;
   nombresMedicos: Array<string>;
   tiposDeConsulta: Array<string>;
+  seleccionado: any;
   
 
   form: FormGroup;

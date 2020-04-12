@@ -61,6 +61,7 @@
 }
 
 @mixin sidebar-color($color){
+  text-align: center;
   &:after{
     background: $color;
   }
@@ -68,11 +69,8 @@
   .nav li.active > a{
     color: $color;
     font-weight: bold;
+    text-align: center;
 
-    i{
-      color: $color;
-      font-weight: bold;
-    }
   }
 }
 
